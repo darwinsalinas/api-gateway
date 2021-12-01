@@ -14,7 +14,9 @@ import { ClientProxySuperFlights } from '../common/proxy/client-proxy';
 import { Observable } from 'rxjs';
 import { FlightMSG, PassengerMSG } from '../common/constants';
 import { IFlight } from 'src/common/interfaces/flight.interface';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('flights')
 @Controller('api/v2/flights')
 export class FlightController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}

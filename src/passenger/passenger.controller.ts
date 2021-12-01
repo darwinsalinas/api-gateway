@@ -4,7 +4,9 @@ import { PassengerDto } from './dto/passenger.dto';
 import { Observable } from 'rxjs';
 import { IPassenger } from 'src/common/interfaces/passenger.interface';
 import { PassengerMSG } from '../common/constants';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('passengers')
 @Controller('api/v2/passengers')
 export class PassengerController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}
