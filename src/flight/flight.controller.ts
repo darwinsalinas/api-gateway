@@ -31,6 +31,7 @@ export class FlightController {
 
   @Get()
   findAll(): Observable<IFlight[]> {
+    console.log('all flights');
     return this.clientProxyFlight.send(FlightMSG.FIND_ALL, '');
   }
 
@@ -58,7 +59,7 @@ export class FlightController {
     @Param('passengerId') passengerId: string,
   ) {
     const passenger = await this.clientProxyPassenger
-      .send(PassengerMSG.CREATE, passengerId)
+      .send(PassengerMSG.FIND_ONE, passengerId)
       .toPromise();
 
     if (!passenger)
