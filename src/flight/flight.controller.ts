@@ -15,8 +15,11 @@ import { Observable } from 'rxjs';
 import { FlightMSG, PassengerMSG } from '../common/constants';
 import { IFlight } from 'src/common/interfaces/flight.interface';
 import { ApiTags } from '@nestjs/swagger';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @ApiTags('flights')
+@UseGuards(JwtAuthGuard)
 @Controller('api/v2/flights')
 export class FlightController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}

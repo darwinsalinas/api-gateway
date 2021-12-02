@@ -13,7 +13,7 @@ async function bootstrap() {
     .setTitle('SuperFlig API')
     .setDescription('Scheduled Flights App')
     .setVersion('2.0.0')
-    // .addBearerAuth()
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
