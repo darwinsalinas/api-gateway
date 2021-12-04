@@ -17,7 +17,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @ApiTags('users')
-@UseGuards(JwtAuthGuard)
+// @UseGuards(JwtAuthGuard)
 @Controller('api/v2/users')
 export class UserController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}
@@ -26,6 +26,7 @@ export class UserController {
 
   @Post()
   create(@Body() userDto: UserDto): Observable<IUser> {
+    console.log('create user');
     return this.clientProxyUser.send(UserMSG.CREATE, userDto);
   }
 
